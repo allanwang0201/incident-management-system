@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Incident Management System",
+    "slug": "incident-system",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1e1e1e"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.incidentsystem.mobile"
+    },
+    "android": {
+      "package": "com.incidentsystem.mobile"
+    }
+  }
+}

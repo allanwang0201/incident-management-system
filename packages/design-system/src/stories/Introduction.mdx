@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Introduction" />
+
+# Incident Management System - Design System
+
+Welcome to the Design System for the Incident Management System. This is a comprehensive component library built with Material-UI and customized for our application needs.
+
+## Features
+
+- **Consistent Design Language**: All components follow the same design patterns and color schemes
+- **Dark/Light Theme Support**: Full theme switching capability
+- **Reusable Components**: Shared across Web, Mobile, and Desktop applications
+- **Type-Safe**: Built with TypeScript for maximum reliability
+- **Accessible**: Following WCAG guidelines
+
+## Color Scheme
+
+### Dark Theme (Default)
+
+- **Background**: #3C3F41
+- **Primary**: #27C6FF (Blue)
+- **Secondary**: #FFC627 (Yellow)
+- **Error**: #FF2727 (Red)
+
+### Priority Icons
+
+- **High Priority**: Red (#FF2727) - Diamond shape with exclamation mark
+- **Medium Priority**: Yellow (#FFC627) - Diamond shape with exclamation mark
+- **Low Priority**: Blue (#27C6FF) - Diamond shape with exclamation mark
+
+## Components
+
+### PriorityIcon
+
+Custom SVG icons matching the design specifications with three priority levels.
+
+### Theme
+
+Material-UI theme configuration with custom colors, typography, and component overrides.
+
+## Usage
+
+```tsx
+import { PriorityIcon, createAppTheme } from '@incident-system/design-system';
+import { ThemeProvider } from '@mui/material';
+
+const theme = createAppTheme('dark');
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <PriorityIcon priority={1} size={24} />
+    </ThemeProvider>
+  );
+}
+```
+
+## Getting Started
+
+Explore the components in the sidebar to see examples and documentation for each component in the design system.

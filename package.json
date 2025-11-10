@@ -1,0 +1,63 @@
+{
+  "name": "incident-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Incident Management System - Monorepo for Web, Mobile, and Desktop",
+  "scripts": {
+    "start": "node scripts/start-all.mjs",
+    "start:all": "node scripts/start-all.mjs",
+    "pretest": "pnpm --filter \"./packages/**\" build",
+    "predev:web": "pnpm --filter \"./packages/**\" build",
+    "dev:web": "pnpm --filter \"./packages/**\" build && pnpm --filter @incident-system/web dev",
+    "dev:api": "pnpm --filter @incident-system/api dev",
+    "predev:desktop": "pnpm --filter \"./packages/**\" build",
+    "dev:desktop": "pnpm --filter \"./packages/**\" build && pnpm --filter @incident-system/desktop predev && pnpm --filter @incident-system/desktop dev",
+    "predev:mobile": "pnpm --filter \"./packages/**\" build",
+    "dev:mobile": "pnpm run predev:mobile && pnpm --filter @incident-system/mobile start",
+    "dev:mobile:ios": "pnpm run predev:mobile && pnpm --filter @incident-system/mobile start -- --ios --port 8082",
+    "dev:mobile:android": "pnpm run predev:mobile && pnpm --filter @incident-system/mobile start -- --android --port 8083",
+    "prebuild:web": "pnpm --filter \"./packages/**\" build",
+    "build:web": "pnpm --filter @incident-system/web build",
+    "prebuild:api": "pnpm --filter \"./packages/**\" build",
+    "build:api": "pnpm --filter \"./packages/**\" build && pnpm --filter @incident-system/api build",
+    "prebuild:desktop": "pnpm --filter \"./packages/**\" build",
+    "build:desktop": "pnpm --filter @incident-system/desktop build",
+    "build:mobile": "pnpm --filter \"./packages/**\" build && pnpm --filter @incident-system/mobile prebuild",
+    "build:mobile:clean": "pnpm --filter @incident-system/mobile prebuild:clean",
+    "build:all": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:watch": "pnpm -r test:watch",
+    "test:coverage": "pnpm -r test:coverage",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write .",
+    "clean": "node scripts/clean-build.mjs && node scripts/clean-cache.mjs && node scripts/clean-node-modules.mjs",
+    "clean:build": "node scripts/clean-build.mjs",
+    "clean:cache": "node scripts/clean-cache.mjs",
+    "clean:cache:deep": "node scripts/clean-cache.mjs --deep"
+  },
+  "keywords": [
+    "incidents",
+    "management",
+    "react",
+    "electron",
+    "react-native",
+    "monorepo"
+  ],
+  "author": "Allan Wang",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.6.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1"
+    }
+  }
+}

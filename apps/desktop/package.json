@@ -1,0 +1,62 @@
+{
+  "name": "@incident-system/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "predev": "ELECTRON_MIRROR= FORCE_ELECTRON_DOWNLOAD=1 node -e \"try{require('fs').rmSync('node_modules/electron/dist',{recursive:true,force:true})}catch(e){}\" && node node_modules/electron/install.js",
+    "dev": "concurrently \"npm run dev:electron\" \"npm run dev:vite\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:3002 && ./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron .",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "@incident-system/design-system": "workspace:*",
+    "@incident-system/shared": "workspace:*",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.3",
+    "@mui/icons-material": "^5.15.3",
+    "@tanstack/react-query": "^5.17.9",
+    "axios": "^1.6.5",
+    "date-fns": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.8",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.incidentsystem.desktop",
+    "productName": "Incident Management System",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
