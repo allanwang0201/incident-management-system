@@ -146,11 +146,15 @@ incident-management-system/
 │   │
 │   └── web-ssr/                # Next.js SSR Web Application
 │       └── src/
-│           └── app/            # App Router with SSR pages
-│               ├── page.tsx    # Main incidents page (SSR)
-│               └── api/        # API endpoints (legacy)
-│                   ├── incidents/
-│                   └── locations/
+│           ├── app/            # App Router (SSR pages)
+│           │   ├── page.tsx    # Incidents list (SSR)
+│           │   └── incidents/
+│           │       └── [id]/page.tsx  # Incident detail (SSR)
+│           ├── img/            # Priority icons (pure SVG)
+│           └── pages/legacy/   # Pages Router examples (getServerSideProps)
+│               ├── index.tsx
+│               └── incidents/
+│                   └── [id].tsx
 │
 ├── packages/
 │   ├── shared/                 # Shared Business Logic
