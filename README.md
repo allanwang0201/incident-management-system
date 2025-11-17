@@ -144,11 +144,13 @@ incident-management-system/
 │   │   ├── main.js             # Electron main process
 │   │   └── preload.js          # Preload script
 │   │
-│   └── api/                    # Next.js API Backend
+│   └── web-ssr/                # Next.js SSR Web Application
 │       └── src/
-│           └── pages/api/      # API endpoints
-│               ├── incidents/
-│               └── locations/
+│           └── app/            # App Router with SSR pages
+│               ├── page.tsx    # Main incidents page (SSR)
+│               └── api/        # API endpoints (legacy)
+│                   ├── incidents/
+│                   └── locations/
 │
 ├── packages/
 │   ├── shared/                 # Shared Business Logic
